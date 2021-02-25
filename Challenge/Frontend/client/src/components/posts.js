@@ -154,7 +154,7 @@ await this.setState({
 
     <Modal isOpen={this.state.modalInsert}>
                 <ModalHeader style={{display: 'block'}}>
-                  <span style={{float: 'right'}} onClick={()=>this.modalInsert()}></span>
+                  <span  onClick={()=>this.modalInsert()}></span>
                 </ModalHeader>
                 <ModalBody>
                   { this.state.typeModal === 'view' ?

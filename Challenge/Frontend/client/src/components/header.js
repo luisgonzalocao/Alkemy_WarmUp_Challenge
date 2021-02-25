@@ -2,8 +2,6 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { NavItem } from "reactstrap";
 
-const url = 'https://jsonplaceholder.typicode.com/posts';
-
 const Header = () => {
   return (
     <div>
