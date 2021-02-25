@@ -1,0 +1,30 @@
+
+
+div.centerTable{
+  text-align: center;
+  justify-content: center !important;
+  vertical-align: center;
+  width: auto;
+  margin-left: 12%;
+  margin-right: 12%;
+  margin-top: 3%;
+}
+
+div.centerTable table {
+ margin: 0 auto;
+ text-align: center;
+}
+
+
+div.centerButton {
+  text-align: center;
+  justify-content: center !important;
+  vertical-align: center;
+  width: auto;
+  margin-left: 12%;
+  margin-right: 12%;
+ }
+table.postTable{
+  width: 100%
+}
+

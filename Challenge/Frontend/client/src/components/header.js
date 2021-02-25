@@ -1,11 +1,10 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { NavItem } from "reactstrap";
 
+const url = 'https://jsonplaceholder.typicode.com/posts';
 
-
-
-const Header = ({history}) => {
+const Header = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,9 +16,9 @@ const Header = ({history}) => {
             </ul>
             <ul className="navbar-nav">
               <NavItem className="nav-link">
-                <Link className="nav-link" to="/addPost">
-                    Registrar nuevo Post
-                </Link>
+                <a className="nav-link" href="/">
+                    Home
+                </a>
               </NavItem>
             </ul>
           </div>
