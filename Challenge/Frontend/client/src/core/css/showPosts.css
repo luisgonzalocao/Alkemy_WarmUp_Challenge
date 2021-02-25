@@ -1,0 +1,25 @@
+div.centerTable{
+    text-align: center;
+    justify-content: center !important;
+    vertical-align: center;
+    width: auto;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 3%;
+}
+div.centerTable table {
+   margin: 0 auto;
+   text-align: center;
+}
+table.flowTable{
+    width: 100%
+}
+
+.bd {
+    padding: 1.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
