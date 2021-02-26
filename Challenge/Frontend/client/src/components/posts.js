@@ -36,6 +36,7 @@ state={
 petitionGet=()=>{
 axios.get(url).then(response=>{
   this.setState({data: response.data});
+  console.log(response);
 }).catch(error=>{
   console.log(error.message);
 })
@@ -44,7 +45,8 @@ axios.get(url).then(response=>{
 // POST
 petitionPost=async()=>{
  delete this.state.form.id;
- await axios.post(url,this.state.form).then(response=>{
+ await axios.post(url,this.state.form).then(response=>{ 
+    console.log(response);
     this.modalInsert();
     this.petitionGet();
   }).catch(error=>{
@@ -54,7 +56,8 @@ petitionPost=async()=>{
 
 // PUT 
 petitionPut=()=>{
-  axios.patch(url+this.state.form.id, this.state.form).then(response=>{
+  axios.patch(url+this.state.form.id, this.state.form).then(response=>{  
+    console.log(response);
     this.modalInsert();
     this.petitionGet();
   })
@@ -63,6 +66,7 @@ petitionPut=()=>{
 // DELETE 
 petitionDelete=()=>{
   axios.delete(url+this.state.form.id).then(response=>{
+    console.log(response);
     this.setState({modalDelete: false});
     this.petitionGet();
   })
