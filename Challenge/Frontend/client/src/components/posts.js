@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/posts.css';
 import axios from "axios";
+
 import {  Modal, 
           ModalBody, 
           ModalFooter, 
@@ -8,6 +9,7 @@ import {  Modal,
           FormGroup,
           Button
         } from 'reactstrap';
+
 import editSVG from '../public/edit.svg';
 import deleteSVG from '../public/delete.svg';
 import detailSVG from '../public/detail.svg';
@@ -30,7 +32,7 @@ state={
   }
 }
 
-// PETICION GET: ALL POSTS
+// PETICION GET: ALL POSTS & NEWs ON CLIENT SIDE
 petitionGet=()=>{
 axios.get(url).then(response=>{
   this.setState({data: response.data});
@@ -41,7 +43,7 @@ axios.get(url).then(response=>{
 
 // POST
 petitionPost=async()=>{
-  delete this.state.form.id;
+ delete this.state.form.id;
  await axios.post(url,this.state.form).then(response=>{
     this.modalInsert();
     this.petitionGet();
@@ -52,7 +54,7 @@ petitionPost=async()=>{
 
 // PUT 
 petitionPut=()=>{
-  axios.put(url+this.state.form.id, this.state.form).then(response=>{
+  axios.patch(url+this.state.form.id, this.state.form).then(response=>{
     this.modalInsert();
     this.petitionGet();
   })
@@ -82,6 +84,7 @@ selectPost=(post)=>{
 }
 
 
+
 // HANDLE CHANGES
 handleChange=async e=>{
 e.persist();
@@ -94,9 +97,9 @@ await this.setState({
 }
 
 
-  componentDidMount() {
-    this.petitionGet();
-  }
+componentDidMount() {
+  this.petitionGet();
+}
 
  
   

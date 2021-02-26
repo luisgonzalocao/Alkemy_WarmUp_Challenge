@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from './header';
+import Footer from './footer';
 import Posts from './posts';
 import './css/home.css'
 
 const Home = (req, res) => {
 
     return(
-        <div>
+        <>
             <Header/>
             <div className="container-fluid">
                 <div className="col">
@@ -15,7 +16,8 @@ const Home = (req, res) => {
                     </div>
                 </div>
             </div>
-        </div>
+            <Footer/>
+        </>
     )
 
 }
