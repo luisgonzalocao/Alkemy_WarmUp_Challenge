@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       category: {
         type: Sequelize.STRING
@@ -21,11 +22,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });
