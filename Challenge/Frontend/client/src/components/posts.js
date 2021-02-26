@@ -21,6 +21,7 @@ const url = 'https://jsonplaceholder.typicode.com/posts/';
 class Posts extends Component {
 state={
   data:[],
+  newData:[],
   modalInsert: false,
   modalDelete: false,
   typeModal: '',
@@ -35,23 +36,26 @@ state={
 // PETICION GET: ALL POSTS & NEWs ON CLIENT SIDE
 petitionGet=()=>{
 axios.get(url).then(response=>{
-  this.setState({data: response.data});
-  console.log(response);
+  let updatedData = response.data.concat(this.state.newData);
+  this.setState({data: updatedData});
+  console.log(updatedData);
 }).catch(error=>{
   console.log(error.message);
 })
 }
 
 // POST
-petitionPost=async()=>{
- delete this.state.form.id;
- await axios.post(url,this.state.form).then(response=>{ 
-    console.log(response);
-    this.modalInsert();
-    this.petitionGet();
-  }).catch(error=>{
-    console.log(error.message);
-  })
+petitionPost=async()=>{ 
+  await axios.post(url,this.state.form).then(response=>{
+      console.log(this.state.form);
+      let updatedData = this.state.newData.push(this.state.form);
+      this.setState({newData: updatedData })
+      this.modalInsert();
+      this.petitionGet();
+      console.log(response);
+    }).catch(error=>{
+      console.log(error.message);
+    })
 }
 
 // PUT 
@@ -176,21 +180,21 @@ componentDidMount() {
                   }
                   { this.state.typeModal === 'view'? 
                     <FormGroup>
-                        <label htmlFor="title"> Título</label>
+                        <label > Título</label>
                         <input className='form-control' readOnly name="title"  type="text" id="title"  value={form?form.title: ''}/>
                     </FormGroup>:<FormGroup>
-                        <label htmlFor="title"> Título</label>
+                        <label > Título</label>
                         <input className='form-control' name="title"  type="text" id="title" onChange={this.handleChange} value={form?form.title: ''}/>
                     </FormGroup>
                   }
                   
                   {this.state.typeModal === 'view'?
                   <FormGroup>
-                      <label htmlFor="body"> Cuerpo</label>
+                      <label > Cuerpo</label>
                       <textarea className='form-control' readOnly name="body" type="textarea" id="body"  value={form?form.body: ''}/>
                   </FormGroup>
                     :<FormGroup>
-                      <label htmlFor="body"> Cuerpo</label>
+                      <label > Cuerpo</label>
                       <textarea className='form-control' name="body" type="textarea" id="body" onChange={this.handleChange} value={form?form.body: ''}/>
                   </FormGroup>
                   }
